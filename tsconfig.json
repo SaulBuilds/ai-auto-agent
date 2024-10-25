@@ -1,8 +1,30 @@
 {
+  "extends": "../../tsconfig.json",
+
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2018",
     "module": "commonjs",
+    "lib": ["es2018"],
     "strict": true,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./",     // Allow TypeScript to find modules
+    "paths": {
+      "@shared/*": ["../../packages/shared/*"]  // Map @shared to the shared package
+    },
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
+    "types": ["node"]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
